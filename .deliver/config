@@ -1,0 +1,19 @@
+APP="test"
+
+BUILD_HOST="allbeer.me"
+BUILD_USER="sivard"
+BUILD_AT="/home/sivard/app_build"
+
+PRODUCTION_HOSTS="allbeer.me"
+PRODUCTION_USER="sivard"
+DELIVER_TO="/home/sivard/app_release"
+
+
+pre_erlang_get_and_update_deps() {
+  local _prod_secret_path="/home/sivard/app_config/prod.secret.exs"
+  if [ "$TARGET_MIX_ENV" = "prod" ]; then
+    __sync_remote "
+      ln -sfn '$_prod_secret_path' '$BUILD_AT/config/prod.secret.exs'
+    "
+  fi
+}
