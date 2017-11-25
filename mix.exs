@@ -3,7 +3,7 @@ defmodule Allbeerme.Mixfile do
 
   def project do
     [app: :allbeerme,
-     version: "0.0.1",
+     version: "0.0.2",
      elixir: "~> 1.2",
      elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix, :gettext] ++ Mix.compilers,
@@ -35,6 +35,8 @@ defmodule Allbeerme.Mixfile do
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
      {:edeliver, "~> 1.4.3"},
+     {:ecto, "~> 2.0"},
+     {:postgrex, "~> 0.13.0"},
      {:distillery, "~> 1.4"}]
   end
 end
