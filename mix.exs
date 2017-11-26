@@ -17,7 +17,8 @@ defmodule Allbeerme.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {Allbeerme, []},
-     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext, :distillery, :edeliver]]
+     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
+                    :distillery, :edeliver, :postgrex, :phoenix_ecto]]
   end
 
   # Specifies which paths to compile per environment.
@@ -28,14 +29,14 @@ defmodule Allbeerme.Mixfile do
   #
   # Type `mix help deps` for examples and options.
   defp deps do
-    [{:phoenix, "~> 1.2.5"},
+    [{:phoenix, "~> 1.3.0"},
      {:phoenix_pubsub, "~> 1.0"},
      {:phoenix_html, "~> 2.6"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
+     {:phoenix_ecto, "~> 3.0"},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
      {:edeliver, "~> 1.4.3"},
-     {:ecto, "~> 2.0"},
      {:postgrex, "~> 0.13.0"},
      {:distillery, "~> 1.4"}]
   end

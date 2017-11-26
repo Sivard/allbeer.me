@@ -9,7 +9,7 @@ defmodule Allbeerme do
     # Define workers and child supervisors to be supervised
     children = [
       # Start the endpoint when the application starts
-      # supervisor(Allbeerme.Endpoint, []),
+      supervisor(Allbeerme.Endpoint, []),
       supervisor(Allbeerme.Repo, []),
       # Start your own worker by calling: Allbeerme.Worker.start_link(arg1, arg2, arg3)
       # worker(Allbeerme.Worker, [arg1, arg2, arg3]),

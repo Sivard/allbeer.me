@@ -18,13 +18,23 @@ defmodule Allbeerme.Web do
 
   def model do
     quote do
-      # Define common model functionality
+      use Ecto.Schema
+
+      import Ecto
+      import Ecto.Changeset
+      import Ecto.Query, only: [from: 1, from: 2]
     end
   end
 
   def controller do
     quote do
       use Phoenix.Controller
+
+      # Alias the data repository and import query/model functions
+      alias Allbeerme.Repo
+
+      import Ecto
+      import Ecto.Query, only: [from: 1, from: 2]
 
       import Allbeerme.Router.Helpers
       import Allbeerme.Gettext
@@ -56,6 +66,11 @@ defmodule Allbeerme.Web do
   def channel do
     quote do
       use Phoenix.Channel
+
+      alias Allbeerme.Repo
+      import Ecto
+      import Ecto.Query, only: [from: 1, from: 2]
+
       import Allbeerme.Gettext
     end
   end
