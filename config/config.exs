@@ -32,6 +32,21 @@ config :logger, :console,
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
 
+# config :arc,
+#   storage: Arc.Storage.S3, # or Arc.Storage.Local
+#   bucket: {:system, "AWS_S3_BUCKET"} # if using Amazon S3
+
 config :arc,
-  storage: Arc.Storage.Local #, Arc.Storage.S3
-  # bucket: {:system, "AWS_S3_BUCKET"} # if using Amazon S3
+ bucket: "allfoodinfo",
+ virtual_host: true
+
+config :ex_aws,
+ access_key_id: "AKIAJ7EQCDIKNPQENDJQ",
+ secret_access_key: "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",
+ region: "eu-central-1",
+ host: "s3.eu-central-1.amazonaws.com",
+ s3: [
+ scheme: "https://",
+ host: "s3.eu-central-1.amazonaws.com",
+ region: "eu-central-1"
+ ]
