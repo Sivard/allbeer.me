@@ -18,7 +18,8 @@ defmodule Allbeerme.Mixfile do
   def application do
     [mod: {Allbeerme, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :distillery, :edeliver, :postgrex, :phoenix_ecto]]
+                    :distillery, :edeliver, :postgrex, :phoenix_ecto,
+                    :ex_aws, :hackney, :poison, :arc_ecto]]
   end
 
   # Specifies which paths to compile per environment.
@@ -29,15 +30,23 @@ defmodule Allbeerme.Mixfile do
   #
   # Type `mix help deps` for examples and options.
   defp deps do
-    [{:phoenix, "~> 1.3.0"},
-     {:phoenix_pubsub, "~> 1.0"},
-     {:phoenix_html, "~> 2.6"},
-     {:phoenix_live_reload, "~> 1.0", only: :dev},
-     {:phoenix_ecto, "~> 3.0"},
-     {:gettext, "~> 0.11"},
-     {:cowboy, "~> 1.0"},
-     {:edeliver, "~> 1.4.3"},
-     {:postgrex, "~> 0.13.0"},
-     {:distillery, "~> 1.4"}]
+    [
+      {:arc, "~> 0.8.0"},
+      {:arc_ecto, "~> 0.7.0"},
+      {:cowboy, "~> 1.0"},
+      {:distillery, "~> 1.4"},
+      {:edeliver, "~> 1.4.3"},
+      {:ex_aws, "~> 1.1"},
+      {:gettext, "~> 0.11"},
+      {:hackney, "~> 1.6"},
+      {:phoenix, "~> 1.3.0"},
+      {:phoenix_ecto, "~> 3.0"},
+      {:phoenix_html, "~> 2.6"},
+      {:phoenix_live_reload, "~> 1.0", only: :dev},
+      {:phoenix_pubsub, "~> 1.0"},
+      {:poison, "~> 3.1"},
+      {:postgrex, "~> 0.13.0"},
+      {:sweet_xml, "~> 0.6"},
+    ]
   end
 end
