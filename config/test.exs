@@ -8,3 +8,5 @@ config :allbeerme, Allbeerme.Endpoint,
 
 # Print only warnings and errors during test
 config :logger, level: :warn
+
+config :comeonin, bcrypt_log_rounds: 4
