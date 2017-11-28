@@ -1,5 +1,4 @@
 defmodule Allbeerme.UserTest do
-  # use Allbeerme.ModelCase
   use ExUnit.Case
 
   alias Allbeerme.User
@@ -15,5 +14,10 @@ defmodule Allbeerme.UserTest do
   test "changeset with invalid attributes" do
     changeset = User.changeset(%User{}, @invalid_attrs)
     refute changeset.valid?
+  end
+
+  test "password_digest value gets set to a hash" do
+    changeset = User.changeset(%User{}, @valid_attrs)
+    assert get_change(changeset, :password_digest) == "DE"
   end
 end
