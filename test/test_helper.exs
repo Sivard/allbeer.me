@@ -1,3 +1,3 @@
 ExUnit.start
 
-Ecto.Adapters.SQL.Sandbox.mode(Allbeerme.Repo, :manual)
+# Ecto.Adapters.SQL.Sandbox.mode(Allbeerme.Repo, :manual)

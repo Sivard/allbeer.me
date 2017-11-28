@@ -19,6 +19,7 @@ defmodule Allbeerme.Router do
     get "/", PageController, :index
     resources "/beers", BeerController
     resources "/images", ImageController
+    resources "/users", UserController
   end
 
   # Other scopes may use custom stacks.
