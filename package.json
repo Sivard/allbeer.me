@@ -14,5 +14,9 @@
   "devDependencies": {
     "copy-webpack-plugin": "^4.2.3",
     "webpack": "^3.9.1"
+  },
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "jquery-ui": "^1.12.1"
   }
 }

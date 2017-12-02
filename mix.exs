@@ -42,7 +42,7 @@ defmodule Allbeerme.Mixfile do
       {:hackney, "~> 1.6"},
       {:phoenix, "~> 1.3.0"},
       {:phoenix_ecto, "~> 3.0"},
-      {:phoenix_html, "~> 2.6"},
+      {:phoenix_html, "~> 2.0"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:phoenix_pubsub, "~> 1.0"},
       {:poison, "~> 3.1"},
