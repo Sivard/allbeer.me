@@ -17,7 +17,7 @@ defmodule Allbeerme.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
-    resources "/", BeerController
+    resources "/beers", BeerController
     resources "/images", ImageController
     resources "/users", UserController
     resources "/sessions", SessionController, only: [:new, :create, :delete]

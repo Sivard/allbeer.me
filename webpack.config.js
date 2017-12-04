@@ -1,4 +1,5 @@
 var CopyWebpackPlugin = require("copy-webpack-plugin");
+var extractCSS = require("extract-text-webpack-plugin");
 
 module.exports = {
   entry: __dirname + "/web/js/app.js",

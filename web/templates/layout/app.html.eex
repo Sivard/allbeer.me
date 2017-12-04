@@ -5,17 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Андрей Белянцев">
 
-    <title>Hello Allbeerme!</title>
+    <title>Информационный портал о пиве!</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
   <body>
-    <div class="container">
-      <header class="header">
-        <nav role="navigation">
-          <ul class="nav nav-pills pull-right">
+    <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+      <header>
+        <nav class='uk-navbar' role="navigation">
+          <a class='uk-navbar-brand' href="/">Allbeerme</a>
+          <ul class="uk-navbar-nav">
+            <li><%= link "Пиво", to: beer_path(@conn, :index) %></li>
+          </ul>
+          <ul class='uk-navbar-flip'>
             <li>
               <%= if user = current_user(@conn) do %>
                 Logged in as
@@ -28,16 +32,30 @@
             </li>
           </ul>
         </nav>
-        <span class="logo"></span>
       </header>
 
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+      <%= if info = get_flash(@conn, :info) do %>
+        <div uk-alert class="uk-alert uk-alert-success">
+          <%= info %>
+          <a class="uk-alert-close" uk-close></a>
+        </div>
+      <% end %>
+      <%= if error = get_flash(@conn, :error) do %>
+        <div uk-alert class="uk-alert uk-alert-danger" role="alert">
+          <%= error %>
+          <a class="uk-alert-close" uk-close></a>
+        </div>
+      <% end %>
 
-      <main role="main">
-        <%= render @view_module, @view_template, assigns %>
+      <main class='uk-grid' role="main">
+        <div class='uk-width-1-1'>
+          <%= render @view_module, @view_template, assigns %>
+        </div>
       </main>
 
+      <footer class='uk-grid'>
+        <div class='uk-width-1-1'>Copyright © 2017 Sivard</div>
+      </footer>
     </div> <!-- /container -->
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
