@@ -2,6 +2,9 @@ defmodule Allbeerme.Beer do
   use Allbeerme.Web, :model
 
   schema "beers" do
+    # Relations
+    belongs_to :user, Allbeerme.User , foreign_key: :author_id
+
     field :name, :string
     field :body, :string
     field :title, :string

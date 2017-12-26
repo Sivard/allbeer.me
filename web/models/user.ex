@@ -3,6 +3,9 @@ defmodule Allbeerme.User do
   import Comeonin.Bcrypt, only: [hashpwsalt: 1]
 
   schema "users" do
+    # Relations
+    has_many :beers, Allbeerme.Beer, foreign_key: :author_id
+
     field :username, :string
     field :email, :string
     field :password_digest, :string
