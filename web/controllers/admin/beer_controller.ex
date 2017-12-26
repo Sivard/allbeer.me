@@ -3,6 +3,8 @@ defmodule Allbeerme.Admin.BeerController do
 
   alias Allbeerme.Beer
 
+  plug :put_layout, "admin.html"
+
   def index(conn, _params) do
     beers = Repo.all(Beer)
     render(conn, "index.html", beers: beers)

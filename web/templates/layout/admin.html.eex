@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Андрей Белянцев">
 
-    <title>Информационный портал о пиве!</title>
+    <title>Информационный портал о пиве! - Админка</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
@@ -17,7 +17,9 @@
         <nav class='uk-navbar' role="navigation">
           <a class='uk-navbar-brand' href="/">Allbeerme</a>
           <ul class="uk-navbar-nav">
-            <li><%= link "Пиво", to: beer_path(@conn, :index) %></li>
+            <li><%= link "Пиво", to: admin_beer_path(@conn, :index) %></li>
+            <li><%= link "Пользователи", to: admin_user_path(@conn, :index) %></li>
+            <li><%= link "Картинки", to: admin_image_path(@conn, :index) %></li>
           </ul>
           <ul class='uk-navbar-flip'>
             <li>

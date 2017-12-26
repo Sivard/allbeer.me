@@ -3,6 +3,7 @@ defmodule Allbeerme.Admin.SessionController do
   alias Allbeerme.User
   import Comeonin.Bcrypt, only: [checkpw: 2, dummy_checkpw: 0]
 
+  plug :put_layout, "admin.html"
   plug :scrub_params, "user" when action in [:create]
 
   def new(conn, _params) do
