@@ -5,6 +5,7 @@
 /*.ez
 /uploads
 /node_modules
+/pg_data*
 
 # Generated on crash by the VM
 erl_crash.dump
