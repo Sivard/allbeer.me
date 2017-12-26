@@ -1,4 +1,4 @@
-<h4><%= link "Upload new image", to: admin_image_path(@conn, :new) %></h4>
+<h4><%= link "Загрузить новое сообщение", to: admin_image_path(@conn, :new) %></h4>
 <%= for image <- @images do %>
   <img src="<%= Allbeerme.ImageUploader.url({image.image, image})%>"><br>
 <% end %>

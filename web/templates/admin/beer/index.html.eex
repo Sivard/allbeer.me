@@ -1,13 +1,13 @@
-<h2>Listing beers</h2>
+<h2>Список пива</h2>
 
 <table class="table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Body</th>
-      <th>Title</th>
-      <th>Keywords</th>
-      <th>Description</th>
+      <th>Название</th>
+      <th>Описание</th>
+      <th>Title (SEO)</th>
+      <th>Keywords (SEO)</th>
+      <th>Description (SEO)</th>
 
       <th></th>
     </tr>
@@ -22,13 +22,13 @@
       <td><%= beer.description %></td>
 
       <td class="text-right">
-        <%= link "Show", to: admin_beer_path(@conn, :show, beer), class: "btn btn-default btn-xs" %>
-        <%= link "Edit", to: admin_beer_path(@conn, :edit, beer), class: "btn btn-default btn-xs" %>
-        <%= link "Delete", to: admin_beer_path(@conn, :delete, beer), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+        <%= link "Показать", to: admin_beer_path(@conn, :show, beer), class: "btn btn-default btn-xs" %>
+        <%= link "Редактировать", to: admin_beer_path(@conn, :edit, beer), class: "btn btn-default btn-xs" %>
+        <%= link "Удалить", to: admin_beer_path(@conn, :delete, beer), method: :delete, data: [confirm: "Вы уверенны?"], class: "btn btn-danger btn-xs" %>
       </td>
     </tr>
 <% end %>
   </tbody>
 </table>
 
-<%= link "New beer", to: admin_beer_path(@conn, :new) %>
+<%= link "Новое пиво", to: admin_beer_path(@conn, :new) %>

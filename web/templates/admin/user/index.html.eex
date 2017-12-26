@@ -1,11 +1,11 @@
-<h2>Listing users</h2>
+<h2>Список пользователей</h2>
 
 <table class="table">
   <thead>
     <tr>
-      <th>Username</th>
+      <th>Логин</th>
       <th>Email</th>
-      <th>Password digest</th>
+      <th>Пароль digest</th>
 
       <th></th>
     </tr>
@@ -18,13 +18,13 @@
       <td><%= user.password_digest %></td>
 
       <td class="text-right">
-        <span><%= link "Show", to: admin_user_path(@conn, :show, user), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Edit", to: admin_user_path(@conn, :edit, user), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Delete", to: admin_user_path(@conn, :delete, user), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+        <span><%= link "Показать", to: admin_user_path(@conn, :show, user), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Редактировать", to: admin_user_path(@conn, :edit, user), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Удалить", to: admin_user_path(@conn, :delete, user), method: :delete, data: [confirm: "Вы уверенны?"], class: "btn btn-danger btn-xs" %></span>
       </td>
     </tr>
 <% end %>
   </tbody>
 </table>
 
-<span><%= link "New user", to: admin_user_path(@conn, :new) %></span>
+<span><%= link "Новый пользователь", to: admin_user_path(@conn, :new) %></span>
