@@ -1,4 +1,4 @@
-defmodule Allbeerme.ImageController do
+defmodule Allbeerme.Admin.ImageController do
   use Allbeerme.Web, :controller
 
   alias Allbeerme.Image
@@ -21,7 +21,7 @@ defmodule Allbeerme.ImageController do
       {:ok, image} ->
         conn
         |> put_flash(:info, "Image was added")
-        |> redirect(to: image_path(conn, :index))
+        |> redirect(to: admin_image_path(conn, :index))
       {:error, changeset} ->
         conn
         |> put_flash(:error, "Something went wrong")

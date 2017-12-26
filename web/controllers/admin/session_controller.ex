@@ -1,4 +1,4 @@
-defmodule Allbeerme.SessionController do
+defmodule Allbeerme.Admin.SessionController do
   use Allbeerme.Web, :controller
   alias Allbeerme.User
   import Comeonin.Bcrypt, only: [checkpw: 2, dummy_checkpw: 0]

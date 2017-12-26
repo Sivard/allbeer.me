@@ -1,5 +1,5 @@
 <h2>Upload a new image</h2>
-<%= form_for @changeset, image_path(@conn, :create), 
+<%= form_for @changeset, admin_image_path(@conn, :create), 
              [multipart: true], fn f -> %>
   <div class="form-group">
     <label>Image</label>
