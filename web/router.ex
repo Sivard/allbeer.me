@@ -9,6 +9,10 @@ defmodule Allbeerme.Router do
     plug :put_secure_browser_headers
   end
 
+  pipeline :admin do
+    plug :put_layout, {Allbeerme.LayoutView, :admin}
+  end
+
   pipeline :api do
     plug :accepts, ["json"]
   end
@@ -21,7 +25,9 @@ defmodule Allbeerme.Router do
   end
 
   scope "/admin", Allbeerme, as: :admin do
-    pipe_through :browser
+    pipe_through [:browser, :admin]
+
+    get "/", Admin.BeerController, :index
 
     resources "/beers", Admin.BeerController
     resources "/images", Admin.ImageController

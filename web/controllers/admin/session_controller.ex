@@ -3,7 +3,6 @@ defmodule Allbeerme.Admin.SessionController do
   alias Allbeerme.User
   import Comeonin.Bcrypt, only: [checkpw: 2, dummy_checkpw: 0]
 
-  plug :put_layout, "admin.html"
   plug :scrub_params, "user" when action in [:create]
 
   def new(conn, _params) do
@@ -23,8 +22,8 @@ defmodule Allbeerme.Admin.SessionController do
   def delete(conn, _params) do
     conn
     |> delete_session(:current_user)
-    |> put_flash(:info, "Signed out successfully!")
-    |> redirect(to: page_path(conn, :index))
+    |> put_flash(:info, "Успешный выход!")
+    |> redirect(to: admin_beer_path(conn, :index))
   end
 
   defp sign_in(user, _password, conn) when is_nil(user) do
@@ -35,8 +34,8 @@ defmodule Allbeerme.Admin.SessionController do
     if checkpw(password, user.password_digest) do
       conn
       |> put_session(:current_user, %{id: user.id, username: user.username})
-      |> put_flash(:info, "Sign in successful!")
-      |> redirect(to: page_path(conn, :index))
+      |> put_flash(:info, "Успешный вход!")
+      |> redirect(to: admin_beer_path(conn, :index))
     else
       failed_login(conn)
     end
@@ -46,8 +45,8 @@ defmodule Allbeerme.Admin.SessionController do
     dummy_checkpw()
     conn
     |> put_session(:current_user, nil)
-    |> put_flash(:error, "Invalid username/password combination!")
-    |> redirect(to: page_path(conn, :index))
+    |> put_flash(:error, "Неверная логин/пароль комбинация!")
+    |> redirect(to: admin_session_path(conn, :new))
     |> halt()
   end
 end

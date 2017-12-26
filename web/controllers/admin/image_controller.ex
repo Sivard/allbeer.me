@@ -4,8 +4,6 @@ defmodule Allbeerme.Admin.ImageController do
   alias Allbeerme.Image
   alias Allbeerme.Repo
 
-  plug :put_layout, "admin.html"
-
   def index(conn, _) do
     images = Repo.all(Image)
     render(conn, "index.html", images: images)
