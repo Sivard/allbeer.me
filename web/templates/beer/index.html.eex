@@ -22,13 +22,9 @@
       <td><%= beer.description %></td>
 
       <td class="text-right">
-        <%= link "Show", to: beer_path(@conn, :show, beer), class: "btn btn-default btn-xs" %>
-        <%= link "Edit", to: beer_path(@conn, :edit, beer), class: "btn btn-default btn-xs" %>
-        <%= link "Delete", to: beer_path(@conn, :delete, beer), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+        <%= link "Подробнее", to: beer_path(@conn, :show, beer), class: "btn btn-default btn-xs" %>
       </td>
     </tr>
 <% end %>
   </tbody>
 </table>
-
-<%= link "New beer", to: beer_path(@conn, :new) %>

@@ -28,7 +28,6 @@ defmodule Allbeerme.Router do
     pipe_through [:browser, :admin]
 
     get "/", Admin.BeerController, :index
-
     resources "/beers", Admin.BeerController
     resources "/images", Admin.ImageController
     resources "/users", Admin.UserController

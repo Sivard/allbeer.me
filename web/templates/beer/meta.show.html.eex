@@ -1,0 +1,4 @@
+    <meta name="author" content="Sivard">
+    <meta name="description" content="Информационный портал о пиве - <%= @beer.description %>.">
+    <meta name="keywords" content="<%= @beer.keywords %>, пиво, о пиве, сайт о пиве, все пиво мне">
+    <title>Информационный портал о пиве - <%= @beer.title %>.</title>

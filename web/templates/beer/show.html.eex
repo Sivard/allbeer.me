@@ -1,33 +1,32 @@
-<h2>Show beer</h2>
+<h2>Пиво</h2>
 
 <ul>
 
   <li>
-    <strong>Name:</strong>
+    <strong>Название:</strong>
     <%= @beer.name %>
   </li>
 
   <li>
-    <strong>Body:</strong>
+    <strong>Описание:</strong>
     <%= @beer.body %>
   </li>
 
   <li>
-    <strong>Title:</strong>
+    <strong>Заголовок:</strong>
     <%= @beer.title %>
   </li>
 
   <li>
-    <strong>Keywords:</strong>
+    <strong>Слова:</strong>
     <%= @beer.keywords %>
   </li>
 
   <li>
-    <strong>Description:</strong>
+    <strong>Описание:</strong>
     <%= @beer.description %>
   </li>
 
 </ul>
 
-<%= link "Edit", to: beer_path(@conn, :edit, @beer) %>
 <%= link "Back", to: beer_path(@conn, :index) %>

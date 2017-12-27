@@ -10350,7 +10350,7 @@ __webpack_require__(4);
 __WEBPACK_IMPORTED_MODULE_2_uikit___default.a.use(__WEBPACK_IMPORTED_MODULE_3_uikit_dist_js_uikit_icons___default.a);
 
 // components can be called from the imported UIkit reference
-__WEBPACK_IMPORTED_MODULE_2_uikit___default.a.notification('Hello world.');
+// UIkit.notification('Hello world.');
 
 
 /***/ }),
