@@ -37,7 +37,7 @@ import_config "#{Mix.env}.exs"
 #   bucket: {:system, "AWS_S3_BUCKET"} # if using Amazon S3
 
 config :arc,
- bucket: "allfoodinfo",
+ bucket: "allbeerme",
  virtual_host: true
 
 config :ex_aws,

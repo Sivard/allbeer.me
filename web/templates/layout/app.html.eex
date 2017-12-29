@@ -7,7 +7,7 @@
     <%= render_existing(@view_module, "meta." <> @view_template, assigns) ||
         render(Allbeerme.LayoutView, "meta.html", assigns) %>
 
-    <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+    <link rel="stylesheet" href="<%= static_path(@conn, "/dist/app.css") %>">
   </head>
 
   <body>
@@ -44,6 +44,6 @@
         <div class='uk-width-1-1'>Copyright © <%= Date.utc_today.year %> Sivard</div>
       </footer>
     </div> <!-- /container -->
-    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+    <script src="<%= static_path(@conn, "/dist/app.js") %>"></script>
   </body>
 </html>

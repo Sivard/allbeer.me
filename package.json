@@ -12,14 +12,32 @@
   "author": "Andrew Belyantsev",
   "license": "BSD-2-Clause",
   "devDependencies": {
-    "copy-webpack-plugin": "^4.2.3",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "phoenix": "file:deps/phoenix",
+    "phoenix_html": "file:deps/phoenix_html",
     "webpack": "^3.10.0"
   },
   "dependencies": {
+    "autoprefixer": "^7.2.3",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-env": "^1.6.1",
+    "bootstrap": "^4.0.0-beta.3",
+    "bootstrap-loader": "^2.2.0",
+    "copy-webpack-plugin": "^4.3.1",
+    "css-loader": "^0.28.7",
+    "exports-loader": "^0.6.4",
+    "imports-loader": "^0.7.1",
     "jquery": "^3.2.1",
-    "jquery-ui": "^1.12.1",
-    "phoenix": "file:deps/phoenix",
-    "phoenix_html": "file:deps/phoenix_html",
-    "uikit": "^3.0.0-beta.35"
+    "node-sass": "^4.7.2",
+    "popper.js": "^1.12.9",
+    "postcss": "^6.0.14",
+    "postcss-flexbugs-fixes": "^3.2.0",
+    "postcss-loader": "^2.0.9",
+    "resolve-url-loader": "^2.2.1",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.1",
+    "tether": "^1.4.3",
+    "url-loader": "^0.6.2"
   }
 }
