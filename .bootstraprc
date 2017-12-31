@@ -44,18 +44,18 @@ styles:
   input-group: true
   jumbotron: true
   list-group: true
-  media: true
+  media: false
   nav: true
   navbar: true
   pagination: true
-  progress: true
+  progress: false
   transitions: true
 
   # Components w/ JavaScript
-  modal: true
+  modal: false
   tooltip: true
   popover: true
-  carousel: true
+  carousel: false
 
   # Utility classes
   utilities: true
@@ -64,12 +64,12 @@ styles:
 scripts:
   alert: true
   button: true
-  carousel: true
+  carousel: false
   collapse: true
   dropdown: true
-  modal: true
+  modal: false
   popover: true
-  scrollspy: true
+  scrollspy: false
   tab: true
   tooltip: true
   util: true

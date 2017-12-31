@@ -1,5 +1,4 @@
-// import 'bootstrap';
-// import 'bootstrap.bundle';
+import "phoenix_html";
 
 const project = "Myproject";
 setTimeout(() => {
