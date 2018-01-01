@@ -12,51 +12,53 @@
   </head>
 
   <body>
-    <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
-      <header>
-        <nav class='uk-navbar' role="navigation">
-          <a class='uk-navbar-brand' href="/">Allbeerme</a>
-          <ul class="uk-navbar-nav">
-            <li><%= link "Пиво", to: admin_beer_path(@conn, :index) %></li>
-            <li><%= link "Пользователи", to: admin_user_path(@conn, :index) %></li>
-            <li><%= link "Картинки", to: admin_image_path(@conn, :index) %></li>
+    <div class="container">
+      <nav class='navbar navbar-expand-lg navbar-light bg-faded'>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <%= link "Allbeerme", to: '/admin', class: 'navbar-brand' %>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <%= link to: admin_beer_path(@conn, :index), class: 'nav-link' do %>
+                Пиво <span class="sr-only">(current)</span>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link "Пользователи", to: admin_user_path(@conn, :index), class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link "Картинки", to: admin_image_path(@conn, :index), class: 'nav-link' %>
+            </li>
           </ul>
-          <ul class='uk-navbar-flip'>
+          <ul class="navbar-nav ml-auto">
             <li>
               <%= if user = current_user(@conn) do %>
                 Вы авторизованы как
                 <strong><%= user.username %></strong>
-                <br>
+
                 <%= link "Выйти", to: admin_session_path(@conn, :delete, user.id), method: :delete %>
               <% else %>
                 <%= link "Войти", to: admin_session_path(@conn, :new) %>
               <% end %>
             </li>
           </ul>
-        </nav>
-      </header>
-
-      <%= if info = get_flash(@conn, :info) do %>
-        <div uk-alert class="uk-alert uk-alert-success">
-          <%= info %>
-          <a class="uk-alert-close" uk-close></a>
         </div>
-      <% end %>
-      <%= if error = get_flash(@conn, :error) do %>
-        <div uk-alert class="uk-alert uk-alert-danger" role="alert">
-          <%= error %>
-          <a class="uk-alert-close" uk-close></a>
-        </div>
-      <% end %>
+      </nav>
+      <%= show_flash(@conn) %>
 
-      <main class='uk-grid' role="main">
-        <div class='uk-width-1-1'>
-          <%= render @view_module, @view_template, assigns %>
+      <main role="main">
+        <div class="row">
+          <div class="col-12">
+            <%= render @view_module, @view_template, assigns %>
+          </div>
         </div>
       </main>
 
-      <footer class='uk-grid'>
-        <div class='uk-width-1-1'>Copyright © <%= Date.utc_today.year %> Sivard</div>
+      <footer class='fixed-bottom'>
+        <div class='container'>Copyright © <%= Date.utc_today.year %> Sivard</div>
       </footer>
     </div> <!-- /container -->
     <script src="<%= static_path(@conn, "/dist/app.js") %>"></script>

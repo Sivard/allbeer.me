@@ -16172,19 +16172,20 @@ var Util = function ($) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/* WEBPACK VAR INJECTION */(function($) {
 
+__webpack_require__(19);
 
-__webpack_require__(21);
+$(".alert").alert();
 
 var project = "Myproject";
 setTimeout(function () {
   console.log('Hello from ${project}!');
 }, 1000);
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 19 */,
-/* 20 */,
-/* 21 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

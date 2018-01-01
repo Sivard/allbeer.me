@@ -44,7 +44,7 @@ styles:
   input-group: true
   jumbotron: true
   list-group: true
-  media: false
+  media: true
   nav: true
   navbar: true
   pagination: true
