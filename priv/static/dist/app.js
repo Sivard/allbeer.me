@@ -12922,7 +12922,8 @@ Popper.Defaults = Defaults;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(4);
-module.exports = __webpack_require__(18);
+__webpack_require__(18);
+module.exports = __webpack_require__(19);
 
 
 /***/ }),
@@ -16169,12 +16170,18 @@ var Util = function ($) {
 
 /***/ }),
 /* 18 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function($) {
 
-__webpack_require__(19);
+__webpack_require__(20);
 
 $(".alert").alert();
 
@@ -16185,7 +16192,7 @@ setTimeout(function () {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

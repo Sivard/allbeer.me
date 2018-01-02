@@ -1,9 +1,15 @@
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const webpack = require("webpack");
+const autoprefixer = require('autoprefixer');
+const precss = require('precss');
 
 module.exports = {
-  entry: ['bootstrap-loader', __dirname + '/web/static/js/app.js'],
+  entry: [
+    'bootstrap-loader',
+    'font-awesome/scss/font-awesome.scss',
+    __dirname + '/web/static/js/app.js'
+  ],
   output: {
     path:  __dirname + "/priv/static/dist",
     filename: "app.js"
@@ -40,6 +46,38 @@ module.exports = {
         query: {
           presets: ['env'],
         },
+      },
+      {
+        test: /\.(scss)$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader', // translates CSS into CommonJS modules
+            }, {
+              loader: 'postcss-loader', // Run post css actions
+              options: {
+                plugins() {
+                  // post css plugins, can be exported to postcss.config.js
+                  return [
+                    precss,
+                    autoprefixer
+                  ];
+                }
+              }
+            }, {
+              loader: 'sass-loader' // compiles SASS to CSS
+            }
+          ]
+        })
+      },
+      // font-awesome
+      {
+        test: /font-awesome\.config\.js/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'font-awesome-loader' }
+        ]
       },
       { test: /bootstrap[\/\\]dist[\/\\]js[\/\\]umd[\/\\]/, loader: 'imports-loader?jQuery=jquery' },
       { test: /\.(woff2?|svg)$/, loader: 'url-loader?limit=10000' },

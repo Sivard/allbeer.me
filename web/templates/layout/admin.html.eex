@@ -34,14 +34,18 @@
             </li>
           </ul>
           <ul class="navbar-nav ml-auto">
-            <li>
+            <li class="nav-item">
               <%= if user = current_user(@conn) do %>
                 Вы авторизованы как
                 <strong><%= user.username %></strong>
 
-                <%= link "Выйти", to: admin_session_path(@conn, :delete, user.id), method: :delete %>
+                <%= link to: admin_session_path(@conn, :delete, user.id), method: :delete, title: "Выйти" do %>
+                  <i class="fa fa-sign-in" aria-hidden="true"></i>
+                <% end %>
               <% else %>
-                <%= link "Войти", to: admin_session_path(@conn, :new) %>
+                <%= link to: admin_session_path(@conn, :new), title: "Войти" do %>
+                  <i class="fa fa-sign-out" aria-hidden="true"></i>
+                <% end %>
               <% end %>
             </li>
           </ul>
