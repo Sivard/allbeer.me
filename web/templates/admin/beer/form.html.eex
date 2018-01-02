@@ -1,41 +1,53 @@
 <%= form_for @changeset, @action, [class: "uk-panel uk-panel-box uk-form"], fn f -> %>
   <%= if @changeset.action do %>
-    <div class="uk-alert uk-alert-danger">
+    <div class="alert alert-danger">
       <p>Oops, something went wrong! Please check the errors below.</p>
     </div>
   <% end %>
 
-  <div class="uk-input">
-    <%= label f, :name, class: "control-label" %>
-    <%= text_input f, :name, class: "uk-input" %>
-    <%= error_tag f, :name %>
+  <div class="form-group row">
+    <%= label f, :name, class: "col-md-2 col-form-label" %>
+    <div class="col-md-10">
+      <%= text_input f, :name, class: "form-control" %>
+      <%= error_tag f, :name %>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= label f, :body, class: "control-label" %>
-    <%= textarea f, :body, class: "form-control" %>
-    <%= error_tag f, :body %>
+  <div class="form-group row">
+    <%= label f, :body, class: "col-md-2 col-form-label" %>
+    <div class="col-md-10">
+      <%= textarea f, :body, class: "form-control" %>
+      <%= error_tag f, :body %>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= label f, :title, class: "control-label" %>
-    <%= text_input f, :title, class: "form-control" %>
-    <%= error_tag f, :title %>
+  <div class="form-group row">
+    <%= label f, :title, class: "col-md-2 col-form-label" %>
+    <div class="col-md-10">
+      <%= text_input f, :title, class: "form-control" %>
+      <%= error_tag f, :title %>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= label f, :keywords, class: "control-label" %>
-    <%= text_input f, :keywords, class: "form-control" %>
-    <%= error_tag f, :keywords %>
+  <div class="form-group row">
+    <%= label f, :keywords, class: "col-md-2 col-form-label" %>
+    <div class="col-md-10">
+      <%= text_input f, :keywords, class: "form-control" %>
+      <%= error_tag f, :keywords %>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= label f, :description, class: "control-label" %>
-    <%= text_input f, :description, class: "form-control" %>
-    <%= error_tag f, :description %>
+  <div class="form-group row">
+    <%= label f, :description, class: "col-md-2 col-form-label" %>
+    <div class="col-md-10">
+      <%= text_input f, :description, class: "form-control" %>
+      <%= error_tag f, :description %>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= submit "Отправить", class: "btn btn-primary" %>
+  <div class="form-group row">
+    <div class="offset-2 col-md-10">
+      <%= submit "Отправить", class: "btn btn-primary" %>
+    </div>
   </div>
 <% end %>

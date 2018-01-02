@@ -1,2 +1,10 @@
-<h2>Войти</h2>
-<%= render "form.html", changeset: @changeset, action: session_path(@conn, :create) %>
+<div class="row justify-content-md-center">
+  <div class="col col-lg-2">
+  </div>
+  <div class="col-12  col-md-10 col-lg-8 col-md-auto">
+    <h2 class='text-center'>Войти</h2>
+    <%= render "form.html", changeset: @changeset, action: session_path(@conn, :create) %>
+  </div>
+  <div class="col col-lg-2">
+  </div>
+</div>

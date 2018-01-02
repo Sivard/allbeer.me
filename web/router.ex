@@ -29,7 +29,7 @@ defmodule Allbeerme.Router do
   scope "/admin", Allbeerme, as: :admin do
     pipe_through [:browser, :admin]
 
-    get "/", SessionController, :new
+    get "/", Admin.BeerController, :index
     resources "/beers", Admin.BeerController
     resources "/images", Admin.ImageController
     resources "/users", Admin.UserController

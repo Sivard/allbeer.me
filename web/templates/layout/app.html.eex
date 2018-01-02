@@ -20,11 +20,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <%= link to: beer_path(@conn, :index), class: 'nav-link' do %>
-                Пиво <span class="sr-only">(current)</span>
-              <% end %>
-            </li>
+            <%= current_link(@conn, "Марки пива", beer_path(@conn, :index)) %>
           </ul>
         </div>
       </nav>

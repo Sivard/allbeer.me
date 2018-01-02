@@ -1,30 +1,12 @@
-<h2>Listing beers</h2>
+<h2 class="text-center">Марки пива</h2>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Body</th>
-      <th>Title</th>
-      <th>Keywords</th>
-      <th>Description</th>
-
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
 <%= for beer <- @beers do %>
-    <tr>
-      <td><%= beer.name %></td>
-      <td><%= beer.body %></td>
-      <td><%= beer.title %></td>
-      <td><%= beer.keywords %></td>
-      <td><%= beer.description %></td>
-
-      <td class="text-right">
-        <%= link "Подробнее", to: beer_path(@conn, :show, beer), class: "btn btn-default btn-xs" %>
-      </td>
-    </tr>
+  <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="..." alt="<%= beer.name %>">
+    <div class="card-body">
+      <h5 class="card-title"><%= beer.name %></h5>
+      <p class="card-text"><%= beer.description %></p>
+      <a href="/beers/<%= beer.id %>" class="btn btn-primary">Подробнее...</a>
+    </div>
+  </div>
 <% end %>
-  </tbody>
-</table>

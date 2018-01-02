@@ -1,4 +1,4 @@
-<h2>Новое пиво</h2>
+<h2 class='text-center'>Добавить пиво</h2>
 
 <%= render "form.html", changeset: @changeset,
                         action: admin_beer_path(@conn, :create) %>

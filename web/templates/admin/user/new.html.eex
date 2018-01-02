@@ -1,4 +1,4 @@
-<h2>Новый пользователь</h2>
+<h2 class='text-center'>Добавить пользователя</h2>
 
 <%= render "form.html", changeset: @changeset,
                         action: admin_user_path(@conn, :create) %>
