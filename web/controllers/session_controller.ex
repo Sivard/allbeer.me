@@ -1,8 +1,9 @@
-defmodule Allbeerme.Admin.SessionController do
+defmodule Allbeerme.SessionController do
   use Allbeerme.Web, :controller
   alias Allbeerme.User
   import Comeonin.Bcrypt, only: [checkpw: 2, dummy_checkpw: 0]
 
+  plug :put_layout, {Allbeerme.LayoutView, :app}
   plug :scrub_params, "user" when action in [:create]
 
   def new(conn, _params) do
@@ -23,7 +24,7 @@ defmodule Allbeerme.Admin.SessionController do
     conn
     |> delete_session(:current_user)
     |> put_flash(:info, "Успешный выход!")
-    |> redirect(to: admin_beer_path(conn, :index))
+    |> redirect(to: page_path(conn, :index))
   end
 
   defp sign_in(user, _password, conn) when is_nil(user) do
@@ -46,7 +47,7 @@ defmodule Allbeerme.Admin.SessionController do
     conn
     |> put_session(:current_user, nil)
     |> put_flash(:error, "Неверная логин/пароль комбинация!")
-    |> redirect(to: admin_session_path(conn, :new))
+    |> redirect(to: session_path(conn, :new))
     |> halt()
   end
 end

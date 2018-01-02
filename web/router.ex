@@ -21,17 +21,18 @@ defmodule Allbeerme.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/not_found", PageController, :not_found
     resources "/beers", BeerController, only: [:index, :show]
+    resources "/sessions", SessionController, only: [:new, :create, :delete]
   end
 
   scope "/admin", Allbeerme, as: :admin do
     pipe_through [:browser, :admin]
 
-    get "/", Admin.BeerController, :index
+    get "/", SessionController, :new
     resources "/beers", Admin.BeerController
     resources "/images", Admin.ImageController
     resources "/users", Admin.UserController
-    resources "/sessions", Admin.SessionController, only: [:new, :create, :delete]
   end
 
   # Other scopes may use custom stacks.

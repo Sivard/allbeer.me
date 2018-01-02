@@ -3,6 +3,8 @@ defmodule Allbeerme.Admin.BeerController do
 
   alias Allbeerme.Beer
 
+  plug :authorize_user
+
   def index(conn, _params) do
     beers = Repo.all(Beer)
     render(conn, "index.html", beers: beers)
@@ -61,5 +63,16 @@ defmodule Allbeerme.Admin.BeerController do
     conn
     |> put_flash(:info, "Beer deleted successfully.")
     |> redirect(to: admin_beer_path(conn, :index))
+  end
+
+  defp authorize_user(conn, _opts) do
+    if get_session(conn, :current_user) do
+      conn
+    else
+      conn
+      |> put_flash(:error, "Страница не найдена!")
+      |> redirect(to: page_path(conn, :not_found))
+      |> halt()
+    end
   end
 end
