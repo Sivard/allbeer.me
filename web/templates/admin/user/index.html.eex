@@ -1,7 +1,7 @@
 <h2>Список пользователей</h2>
 
 <table class="table">
-  <thead>
+  <thead class="thead-light">
     <tr>
       <th>Логин</th>
       <th>Email</th>
@@ -18,13 +18,23 @@
       <td><%= user.password_digest %></td>
 
       <td class="text-right">
-        <span><%= link "Показать", to: admin_user_path(@conn, :show, user), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Редактировать", to: admin_user_path(@conn, :edit, user), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Удалить", to: admin_user_path(@conn, :delete, user), method: :delete, data: [confirm: "Вы уверенны?"], class: "btn btn-danger btn-xs" %></span>
+        <%= link to: admin_user_path(@conn, :show, user), title: "Показать", class: "text-muted" do %>
+          <i class="fa fa-eye" aria-hidden="true"></i>
+        <% end %>
+        <%= link to: admin_user_path(@conn, :edit, user), title: "Редактировать", class: "text-muted" do %>
+          <i class="fa fa-edit" aria-hidden="true"></i>
+        <% end %>
+        <%= link to: admin_user_path(@conn, :delete, user), method: :delete, title: "Удалить", data: [confirm: "Вы уверенны?"], class: "text-danger" do %>
+          <i class="fa fa-remove" aria-hidden="true"></i>
+        <% end %>
       </td>
     </tr>
 <% end %>
   </tbody>
 </table>
 
-<span><%= link "Новый пользователь", to: admin_user_path(@conn, :new) %></span>
+<p class="text-right">
+  <%= link to: admin_user_path(@conn, :new) do %>
+    <i class="fa fa-plus" aria-hidden="true"></i> Добавить юзера
+  <% end %>
+</p>

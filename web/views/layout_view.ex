@@ -5,6 +5,25 @@ defmodule Allbeerme.LayoutView do
     Plug.Conn.get_session(conn, :current_user)
   end
 
+  def current_link(conn, title, path) do
+    class = ""
+
+    if conn.request_path == path do
+      class = "active"
+      title = ~E"""
+        <%= title %><span class="sr-only">(current)</span>
+      """
+    end
+
+    ~E"""
+      <li class="nav-item <%= class %>">
+        <%= link to:  path, class: "nav-link" do %>
+          <%= title %>
+        <% end %>
+      </li>
+    """
+  end
+
   defp render_flash(type, message) do
     ~E"""
     <div class="alert alert-<%= type %>" role="alert">

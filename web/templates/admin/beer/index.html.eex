@@ -1,7 +1,7 @@
 <h2>Список пива</h2>
 
 <table class="table">
-  <thead>
+  <thead class="thead-light">
     <tr>
       <th>Название</th>
       <th>Описание</th>
@@ -22,13 +22,23 @@
       <td><%= beer.description %></td>
 
       <td class="text-right">
-        <%= link "Показать", to: admin_beer_path(@conn, :show, beer), class: "btn btn-default btn-xs" %>
-        <%= link "Редактировать", to: admin_beer_path(@conn, :edit, beer), class: "btn btn-default btn-xs" %>
-        <%= link "Удалить", to: admin_beer_path(@conn, :delete, beer), method: :delete, data: [confirm: "Вы уверенны?"], class: "btn btn-danger btn-xs" %>
+        <%= link to: admin_beer_path(@conn, :show, beer), title: "Показать", class: "text-muted" do %>
+          <i class="fa fa-eye" aria-hidden="true"></i>
+        <% end %>
+        <%= link to: admin_beer_path(@conn, :edit, beer), title: "Редактировать", class: "text-muted" do %>
+          <i class="fa fa-edit" aria-hidden="true"></i>
+        <% end %>
+        <%= link to: admin_beer_path(@conn, :delete, beer), method: :delete, title: "Удалить", data: [confirm: "Вы уверенны?"], class: "text-danger" do %>
+          <i class="fa fa-remove" aria-hidden="true"></i>
+        <% end %>
       </td>
     </tr>
 <% end %>
   </tbody>
 </table>
 
-<%= link "Новое пиво", to: admin_beer_path(@conn, :new) %>
+<p class="text-right">
+  <%= link to: admin_beer_path(@conn, :new) do %>
+    <i class="fa fa-plus" aria-hidden="true"></i> Добавить пиво
+  <% end %>
+</p>
