@@ -13,7 +13,7 @@
 
   <body>
     <div class="container">
-      <nav class='navbar navbar-expand-lg navbar-light bg-faded'>
+      <nav class='navbar navbar-expand-lg navbar-dark bg-dark'>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -36,15 +36,12 @@
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
               <%= if user = current_user(@conn) do %>
-                Вы авторизованы как
-                <strong><%= user.username %></strong>
-
-                <%= link to: admin_session_path(@conn, :delete, user.id), method: :delete, title: "Выйти" do %>
-                  <i class="fa fa-sign-in" aria-hidden="true"></i>
+                <%= link to: admin_session_path(@conn, :delete, user.id), method: :delete, title: "Выйти", class: 'nav-link' do %>
+                  Выйти <i class="fa fa-sign-in" aria-hidden="true"></i>
                 <% end %>
               <% else %>
-                <%= link to: admin_session_path(@conn, :new), title: "Войти" do %>
-                  <i class="fa fa-sign-out" aria-hidden="true"></i>
+                <%= link to: admin_session_path(@conn, :new), title: "Войти", class: 'nav-link' do %>
+                  Войти <i class="fa fa-sign-out" aria-hidden="true"></i>
                 <% end %>
               <% end %>
             </li>
@@ -56,6 +53,9 @@
       <main role="main">
         <div class="row">
           <div class="col-12">
+            <%= if user = current_user(@conn) do %>
+              <p class="text-right">Вы авторизованы как <span class='font-weight-bold'><%= user.username %></span></p>
+            <% end %>
             <%= render @view_module, @view_template, assigns %>
           </div>
         </div>
