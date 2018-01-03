@@ -33,9 +33,9 @@ styles:
 
   # Components
   alert: true
-  badge: true
-  breadcrumb: true
-  button-group: true
+  badge: false
+  breadcrumb: false
+  button-group: false
   card: true
   close: true
   custom-forms: true
@@ -53,8 +53,8 @@ styles:
 
   # Components w/ JavaScript
   modal: false
-  tooltip: true
-  popover: true
+  tooltip: false
+  popover: false
   carousel: false
 
   # Utility classes
@@ -68,8 +68,8 @@ scripts:
   collapse: true
   dropdown: true
   modal: false
-  popover: true
+  popover: false
   scrollspy: false
   tab: true
-  tooltip: true
+  tooltip: false
   util: true

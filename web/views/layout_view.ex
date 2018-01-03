@@ -6,19 +6,14 @@ defmodule Allbeerme.LayoutView do
   end
 
   def current_link(conn, title, path) do
-    class = ""
-
-    if conn.request_path == path do
-      class = "active"
-      title = ~E"""
-        <%= title %><span class="sr-only">(current)</span>
-      """
-    end
+    active = conn.request_path == path
+    class = if active, do: "active", else: nil
+    current = if active, do: content_tag(:span, "(current)", class: "sr-only"), else: nil
 
     ~E"""
       <li class="nav-item <%= class %>">
         <%= link to:  path, class: "nav-link" do %>
-          <%= title %>
+          <%= title %> <%= current %>
         <% end %>
       </li>
     """
