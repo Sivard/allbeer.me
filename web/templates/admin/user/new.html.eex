@@ -1,6 +1,9 @@
 <h2 class='text-center'>Добавить пользователя</h2>
 
+<p class="text-right">
+  <%= link "Назад", to: admin_user_path(@conn, :index) %>
+</p>
+
 <%= render "form.html", changeset: @changeset,
                         action: admin_user_path(@conn, :create) %>
 
-<span><%= link "Назад", to: admin_user_path(@conn, :index) %></span>

@@ -1,5 +1,11 @@
 <h2 class='text-center'>Марки пива</h2>
 
+<p class="text-right">
+  <%= link to: admin_beer_path(@conn, :new) do %>
+    <i class="fa fa-plus" aria-hidden="true"></i> Добавить пиво
+  <% end %>
+</p>
+
 <table class="table">
   <thead class="thead-light">
     <tr>
@@ -23,7 +29,7 @@
       <td><%= beer.description %></td>
       <td><%= beer.slug %></td>
 
-      <td class="text-right">
+      <td class="text-right text-nowrap">
         <%= link to: admin_beer_path(@conn, :show, beer), title: "Показать", class: "text-muted" do %>
           <i class="fa fa-eye" aria-hidden="true"></i>
         <% end %>
@@ -38,9 +44,3 @@
 <% end %>
   </tbody>
 </table>
-
-<p class="text-right">
-  <%= link to: admin_beer_path(@conn, :new) do %>
-    <i class="fa fa-plus" aria-hidden="true"></i> Добавить пиво
-  <% end %>
-</p>

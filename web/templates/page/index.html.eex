@@ -8,7 +8,7 @@
           <img class="card-img-top" src="..." alt="<%= beer.name %>">
           <div class="card-body">
             <h5 class="card-title"><%= beer.name %></h5>
-            <p class="card-text"><%= beer.description %></p>
+            <p class="card-text"><%= raw beer.body %></p>
             <a href="/beers/<%= beer.id %>" class="btn btn-primary">Подробнее...</a>
           </div>
         </div>

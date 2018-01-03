@@ -1,5 +1,11 @@
 <h2 class='text-center'>Пользователи</h2>
 
+<p class="text-right">
+  <%= link to: admin_user_path(@conn, :new) do %>
+    <i class="fa fa-plus" aria-hidden="true"></i> Добавить юзера
+  <% end %>
+</p>
+
 <table class="table">
   <thead class="thead-light">
     <tr>
@@ -32,9 +38,3 @@
 <% end %>
   </tbody>
 </table>
-
-<p class="text-right">
-  <%= link to: admin_user_path(@conn, :new) do %>
-    <i class="fa fa-plus" aria-hidden="true"></i> Добавить юзера
-  <% end %>
-</p>

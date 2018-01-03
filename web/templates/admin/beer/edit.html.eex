@@ -1,6 +1,9 @@
 <h2 class='text-center'>Редактировать пиво</h2>
 
+<p class="text-right">
+  <%= link "Назад", to: admin_beer_path(@conn, :index) %>
+</p>
+
 <%= render "form.html", changeset: @changeset,
                         action: admin_beer_path(@conn, :update, @beer) %>
 
-<%= link "Назад", to: admin_beer_path(@conn, :index) %>

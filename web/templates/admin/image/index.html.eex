@@ -1,4 +1,11 @@
-<h4><%= link "Загрузить новое сообщение", to: admin_image_path(@conn, :new) %></h4>
+<h2 class="text-center">Изображения</h2>
+
+<p class="text-right">
+  <%= link to: admin_image_path(@conn, :new) do %>
+    <i class="fa fa-plus" aria-hidden="true"></i> Добавить изображение
+  <% end %>
+</p>
+
 <%= for image <- @images do %>
   <img src="<%= Allbeerme.ImageUploader.url({image.image, image})%>"><br>
 <% end %>
