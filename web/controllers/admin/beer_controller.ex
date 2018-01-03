@@ -47,7 +47,7 @@ defmodule Allbeerme.Admin.BeerController do
       {:ok, beer} ->
         conn
         |> put_flash(:info, "Beer updated successfully.")
-        |> redirect(to: admin_beer_path(conn, :show, beer))
+        |> redirect(to: admin_beer_path(conn, :edit, beer))
       {:error, changeset} ->
         render(conn, "edit.html", beer: beer, changeset: changeset)
     end

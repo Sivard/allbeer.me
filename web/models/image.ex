@@ -3,6 +3,9 @@ defmodule Allbeerme.Image do
   use Arc.Ecto.Schema
 
   schema "images" do
+    # Relations
+    has_many :beers, Allbeerme.Beer, foreign_key: :image_id
+
     field :image, Allbeerme.ImageUploader.Type
 
     timestamps()

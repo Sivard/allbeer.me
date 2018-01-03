@@ -8,9 +8,15 @@ defmodule Allbeerme.Repo.Migrations.CreateBeer do
       add :title, :string
       add :keywords, :string
       add :description, :string
+      add :slug, :string
+      add :author_id, references(:users)
+      add :image_id, references(:images)
 
       timestamps()
     end
 
+    create index(:beers, [:author_id])
+    create index(:beers, [:image_id])
+    create index(:beers, [:slug], unique: true)
   end
 end

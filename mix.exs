@@ -47,6 +47,7 @@ defmodule Allbeerme.Mixfile do
       {:phoenix_pubsub, "~> 1.0"},
       {:poison, "~> 3.1"},
       {:postgrex, "~> 0.13.0"},
+      {:slugify, "~> 1.1"},
       {:sweet_xml, "~> 0.6"},
     ]
   end

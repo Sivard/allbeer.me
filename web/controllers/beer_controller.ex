@@ -9,7 +9,7 @@ defmodule Allbeerme.BeerController do
   end
 
   def show(conn, %{"id" => id}) do
-    beer = Repo.get!(Beer, id)
+    beer = Repo.get_by!(Beer, slug: id)
     render(conn, "show.html", beer: beer)
   end
 end

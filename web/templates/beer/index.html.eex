@@ -6,7 +6,7 @@
     <div class="card-body">
       <h5 class="card-title"><%= beer.name %></h5>
       <p class="card-text"><%= beer.description %></p>
-      <a href="/beers/<%= beer.id %>" class="btn btn-primary">Подробнее...</a>
+      <%= link "Подробнее...", to: beer_path(@conn, :show, beer.slug), class: "btn btn-primary" %>
     </div>
   </div>
 <% end %>
