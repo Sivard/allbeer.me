@@ -7,6 +7,7 @@ defmodule Allbeerme.Admin.BeerController do
 
   def index(conn, _params) do
     beers = Repo.all(Beer)
+    beers = Repo.preload(beers, :logo)
     render(conn, "index.html", beers: beers)
   end
 
@@ -35,6 +36,7 @@ defmodule Allbeerme.Admin.BeerController do
 
   def edit(conn, %{"id" => id}) do
     beer = Repo.get!(Beer, id)
+    beer = Repo.preload(beer, :logo)
     changeset = Beer.changeset(beer)
     render(conn, "edit.html", beer: beer, changeset: changeset)
   end

@@ -6,7 +6,7 @@ defmodule Allbeerme.Beer do
   schema "beers" do
     # Relations
     belongs_to :user, Allbeerme.User , foreign_key: :author_id
-    belongs_to :image, Allbeerme.Image , foreign_key: :image_id
+    has_one :logo, Allbeerme.Image , foreign_key: :beer_id
 
     field :name, :string
     field :body, :string
@@ -26,11 +26,12 @@ defmodule Allbeerme.Beer do
 
     struct
     |> cast(params, [:name, :body, :title, :keywords, :description, :slug])
+    |> cast_assoc(:logo)
     |> validate_required([:name, :body, :title, :keywords, :description])
   end
 
   defp slug_map(%{"name" => name}) do
-    slug = String.downcase(name) |> Slug.slugify() |> String.replace(" ", "-")
+    slug = Slug.slugify(name)
     %{"slug" => slug}
   end
 

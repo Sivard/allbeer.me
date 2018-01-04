@@ -4,9 +4,10 @@ defmodule Allbeerme.Image do
 
   schema "images" do
     # Relations
-    has_many :beers, Allbeerme.Beer, foreign_key: :image_id
+    belongs_to :beer, Allbeerme.Beer
 
     field :image, Allbeerme.ImageUploader.Type
+    field :name, :string
 
     timestamps()
   end
@@ -16,7 +17,8 @@ defmodule Allbeerme.Image do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:image])
+    |> cast(params, [:image, :name])
     |> cast_attachments(params, [:image])
+    |> validate_required([:name])
   end
 end

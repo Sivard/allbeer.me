@@ -15,6 +15,7 @@
       <th>Keywords (SEO)</th>
       <th>Description (SEO)</th>
       <th>Slug (SEO)</th>
+      <th>Logo</th>
 
       <th></th>
     </tr>
@@ -28,6 +29,7 @@
       <td><%= beer.keywords %></td>
       <td><%= beer.description %></td>
       <td><%= beer.slug %></td>
+      <td><%= beer.logo.name %></td>
 
       <td class="text-right text-nowrap">
         <%= link to: admin_beer_path(@conn, :show, beer), title: "Показать", class: "text-muted" do %>

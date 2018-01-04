@@ -5,6 +5,7 @@ defmodule Allbeerme.PageController do
 
   def index(conn, _params) do
     beers = Repo.all(Beer)
+    beers = Repo.preload(beers, :logo)
     render(conn, "index.html", beers: beers)
   end
 

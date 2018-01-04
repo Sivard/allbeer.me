@@ -5,7 +5,7 @@
       <h4>Последние новости</h4>
       <%= for beer <- @beers do %>
         <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="..." alt="<%= beer.name %>">
+          <%= card_link(beer.logo) %>
           <div class="card-body">
             <h5 class="card-title"><%= beer.name %></h5>
             <p class="card-text"><%= raw beer.body %></p>
