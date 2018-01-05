@@ -6,9 +6,35 @@
   <% end %>
 </p>
 
-<%= for image <- @images do %>
-  <p>
-    <%= image.name %>
-    <img src="<%= Allbeerme.ImageUploader.url({image.image, image})%>"><br>
-  </p>
-<% end %>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th>Имя</th>
+      <th>Картинка</th>
+      <th>Марка пива</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for image <- @images do %>
+    <tr>
+      <td>
+        <%= image.name %>
+      </td>
+      <td>
+        <img src="<%= Allbeerme.ImageUploader.url({image.image, image})%>"><br>
+      </td>
+      <td>
+        <%= image.beer.name %>
+      </td>
+      <td>
+        <%= link to: admin_image_path(@conn, :edit, image), title: "Редактировать", class: "text-muted" do %>
+          <i class="fa fa-edit" aria-hidden="true"></i>
+        <% end %>
+        <%= link to: admin_image_path(@conn, :delete, image), method: :delete, title: "Удалить", data: [confirm: "Вы уверенны?"], class: "text-danger" do %>
+          <i class="fa fa-remove" aria-hidden="true"></i>
+        <% end %>
+      </td>
+    <% end %>
+  </tbody>
+</table>

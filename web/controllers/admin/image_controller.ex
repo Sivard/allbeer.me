@@ -2,18 +2,21 @@ defmodule Allbeerme.Admin.ImageController do
   use Allbeerme.Web, :controller
 
   alias Allbeerme.Image
+  alias Allbeerme.Beer
   alias Allbeerme.Repo
 
   plug :authorize_user
 
   def index(conn, _) do
     images = Repo.all(Image)
+    images = Repo.preload(images, :beer)
     render(conn, "index.html", images: images)
   end
 
   def new(conn, _) do
     changeset = Image.changeset(%Image{})
-    render(conn, "new.html", changeset: changeset)
+    beers = Repo.all(Beer)
+    render(conn, "new.html", changeset: changeset, beers: beers)
   end
 
   def create(conn, %{"image" => image_params}) do
@@ -28,6 +31,27 @@ defmodule Allbeerme.Admin.ImageController do
         conn
         |> put_flash(:error, "Something went wrong")
         |> render("new.html", changeset: changeset)
+    end
+  end
+
+  def edit(conn, %{"id" => id}) do
+    image = Repo.get!(Image, id)
+    changeset = Image.changeset(image)
+    beers = Repo.all(Beer)
+    render(conn, "edit.html", image: image, changeset: changeset, beers: beers)
+  end
+
+  def update(conn, %{"id" => id, "image" => image_params}) do
+    image = Repo.get!(Image, id)
+    changeset = Image.changeset(image, image_params)
+
+    case Repo.update(changeset) do
+      {:ok, image} ->
+        conn
+        |> put_flash(:info, "Beer updated successfully.")
+        |> redirect(to: admin_image_path(conn, :index))
+      {:error, changeset} ->
+        render(conn, "edit.html", image: image, changeset: changeset)
     end
   end
 

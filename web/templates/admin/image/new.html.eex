@@ -4,25 +4,5 @@
   <%= link "Назад", to: admin_image_path(@conn, :index) %>
 </p>
 
-<%= form_for @changeset, admin_image_path(@conn, :create), 
-             [multipart: true], fn f -> %>
-  <div class="form-group row">
-    <label class = "col-md-2 col-form-label">Имя файла</label>
-    <div class="col-md-10">
-      <%= text_input f, :name %>
-      <%= error_tag f, :name %>
-    </div>
-  </div>
-  <div class="form-group row">
-    <label class = "col-md-2 col-form-label">Изображение</label>
-    <div class="col-md-10">
-      <%= file_input f, :image %>
-      <%= error_tag f, :image %>
-    </div>
-  </div>
-  <div class="form-group row">
-    <div class="offset-2 col-md-10">
-      <%= submit "Отправить", class: "btn btn-primary" %>
-    </div>
-  </div>
-<% end %>
+<%= render "form.html", changeset: @changeset,
+                        action: admin_image_path(@conn, :create), beers: @beers %>

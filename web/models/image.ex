@@ -17,7 +17,7 @@ defmodule Allbeerme.Image do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:image, :name])
+    |> cast(params, [:image, :name, :beer_id])
     |> cast_attachments(params, [:image])
     |> validate_required([:name])
   end
