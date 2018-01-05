@@ -25,7 +25,7 @@
         <img src="<%= Allbeerme.ImageUploader.url({image.image, image})%>"><br>
       </td>
       <td>
-        <%= image.beer.name %>
+        <%= image.beer && image.beer.name %>
       </td>
       <td>
         <%= link to: admin_image_path(@conn, :edit, image), title: "Редактировать", class: "text-muted" do %>
