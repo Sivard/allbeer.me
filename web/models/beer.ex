@@ -18,6 +18,9 @@ defmodule Allbeerme.Beer do
     timestamps()
   end
 
+  @optional_fields ~w(name body title keywords description slug)a
+  @required_fields ~w(name body title keywords description)a
+
   @doc """
   Builds a changeset based on the `struct` and `params`.
   """
@@ -25,9 +28,9 @@ defmodule Allbeerme.Beer do
     params = Map.merge(params, slug_map(params))
 
     struct
-    |> cast(params, [:name, :body, :title, :keywords, :description, :slug])
+    |> cast(params, @optional_fields)
     |> cast_assoc(:logo)
-    |> validate_required([:name, :body, :title, :keywords, :description])
+    |> validate_required(@required_fields)
   end
 
   defp slug_map(%{"name" => name}) do

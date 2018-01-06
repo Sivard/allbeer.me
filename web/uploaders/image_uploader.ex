@@ -29,20 +29,8 @@ defmodule Allbeerme.ImageUploader do
 
   # Override the storage directory:
   def storage_dir(version, {file, scope}) do
-    # "/images/assets/#{id_partition_part(scope)}/#{version}"
     "uploads/images/#{scope.id}"
   end
-
-  def id_partition_part(scope) do
-    String.pad_leading("#{scope.id}", 9, "0")
-    |> String.split(~r/\d{3}/, include_captures: true, trim: true)
-    |> Enum.join("/")
-  end
-
-  # Provide a default URL if there hasn't been a file uploaded
-  # def default_url(version, scope) do
-  #   "/images/avatars/default_#{version}.png"
-  # end
 
   # Specify custom headers for s3 objects
   # Available options are [:cache_control, :content_disposition,

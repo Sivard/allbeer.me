@@ -22,15 +22,17 @@ defmodule Allbeerme.Admin.ImageController do
   def create(conn, %{"image" => image_params}) do
     IO.inspect image_params
     changeset = Image.changeset(%Image{}, image_params)
+    beers = Repo.all(Beer)
     case Repo.insert(changeset) do
       {:ok, image} ->
+        Image.logo_changeset(image, image_params) |> Repo.update
         conn
         |> put_flash(:info, "Image was added")
         |> redirect(to: admin_image_path(conn, :index))
       {:error, changeset} ->
         conn
         |> put_flash(:error, "Something went wrong")
-        |> render("new.html", changeset: changeset)
+        |> render("new.html", changeset: changeset, beers: beers)
     end
   end
 
@@ -46,7 +48,7 @@ defmodule Allbeerme.Admin.ImageController do
     changeset = Image.changeset(image, image_params)
 
     if changeset.valid? do
-      Repo.update(changeset)
+      Image.logo_changeset(changeset, image_params) |> Repo.update
 
       conn
       |> put_flash(:info, "Image updated successfully.")

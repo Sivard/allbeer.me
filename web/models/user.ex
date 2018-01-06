@@ -17,13 +17,20 @@ defmodule Allbeerme.User do
     field :password_confirmation, :string, virtual: true
   end
 
+  @optional_fields ~w(username email password password_confirmation)a
+  @required_fields ~w(username email password password_confirmation)a
+
   @doc """
   Builds a changeset based on the `struct` and `params`.
   """
+
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:username, :email, :password, :password_confirmation])
-    |> validate_required([:username, :email, :password, :password_confirmation])
+    |> cast(params, @optional_fields)
+    |> validate_required(@required_fields)
+    |> unique_constraint(:email)
+    |> validate_format(:email, ~r/@/)
+    |> validate_length(:password, min: 5)
     |> hash_password
   end
 

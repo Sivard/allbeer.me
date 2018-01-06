@@ -18,7 +18,11 @@ defmodule Allbeerme.Image do
   def changeset(struct, params \\ :invalid) do
     struct
     |> cast(params, [:name, :beer_id])
+    |> validate_required([:name])
+  end
+
+  def logo_changeset(struct, params \\ :invalid) do
+    struct
     |> cast_attachments(params, [:image])
-    |> validate_required([:name, :image])
   end
 end
