@@ -11,6 +11,7 @@ defmodule Allbeerme.BeerController do
 
   def show(conn, %{"id" => id}) do
     beer = Repo.get_by!(Beer, slug: id)
+    beer = Repo.preload(beer, :logo)
     render(conn, "show.html", beer: beer)
   end
 end

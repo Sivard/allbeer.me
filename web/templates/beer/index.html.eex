@@ -1,5 +1,5 @@
 <h2 class="text-center">Марки пива</h2>
-<div class="card-columns">
+<div class="card-columns mb-5">
   <%= for beer <- @beers do %>
     <div class="card">
       <%= beer.logo && card_link(beer.logo) %>
@@ -7,6 +7,9 @@
         <h5 class="card-title"><%= beer.name %></h5>
         <p class="card-text"><%= raw beer.body %></p>
         <%= link "Подробнее...", to: beer_path(@conn, :show, beer.slug), class: "btn btn-primary" %>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Обновлено <%= time_ago(beer.inserted_at) %></small>
       </div>
     </div>
   <% end %>

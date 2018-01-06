@@ -19,7 +19,7 @@ defmodule Allbeerme.Mixfile do
     [mod: {Allbeerme, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
                     :distillery, :edeliver, :postgrex, :phoenix_ecto,
-                    :ex_aws, :hackney, :poison, :arc_ecto, :comeonin]]
+                    :ex_aws, :hackney, :poison, :arc_ecto, :comeonin, :timex]]
   end
 
   # Specifies which paths to compile per environment.
@@ -49,6 +49,7 @@ defmodule Allbeerme.Mixfile do
       {:postgrex, "~> 0.13.0"},
       {:slugify, "~> 1.1"},
       {:sweet_xml, "~> 0.6"},
+      {:timex, "~> 3.1"},
     ]
   end
 end
