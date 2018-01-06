@@ -6,7 +6,7 @@ defmodule Allbeerme.Beer do
   schema "beers" do
     # Relations
     belongs_to :user, Allbeerme.User , foreign_key: :author_id
-    has_one :logo, Allbeerme.Image , foreign_key: :beer_id
+    belongs_to :logo, Allbeerme.Image , foreign_key: :logo_id
 
     field :name, :string
     field :body, :string
@@ -18,8 +18,8 @@ defmodule Allbeerme.Beer do
     timestamps()
   end
 
-  @optional_fields ~w(name body title keywords description slug)a
-  @required_fields ~w(name body title keywords description)a
+  @optional_fields ~w(name body title keywords description slug logo_id)a
+  @required_fields ~w(name body title keywords description logo_id)a
 
   @doc """
   Builds a changeset based on the `struct` and `params`.
@@ -29,7 +29,6 @@ defmodule Allbeerme.Beer do
 
     struct
     |> cast(params, @optional_fields)
-    |> cast_assoc(:logo)
     |> validate_required(@required_fields)
   end
 

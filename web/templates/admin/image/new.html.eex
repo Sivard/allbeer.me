@@ -5,4 +5,4 @@
 </p>
 
 <%= render "form.html", changeset: @changeset,
-                        action: admin_image_path(@conn, :create), beers: @beers %>
+                        action: admin_image_path(@conn, :create) %>

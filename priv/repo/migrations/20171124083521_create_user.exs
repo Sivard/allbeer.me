@@ -10,6 +10,6 @@ defmodule Allbeerme.Repo.Migrations.CreateUser do
       timestamps()
     end
 
-    create unique_index(:users, [:email])
+    create index(:users, [:email], unique: true)
   end
 end

@@ -10,6 +10,7 @@ defmodule Allbeerme.Repo.Migrations.CreateBeer do
       add :description, :string
       add :slug, :string
       add :author_id, references(:users)
+      add :logo_id, references(:images)
 
       timestamps()
     end

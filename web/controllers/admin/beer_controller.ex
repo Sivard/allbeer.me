@@ -2,6 +2,7 @@ defmodule Allbeerme.Admin.BeerController do
   use Allbeerme.Web, :controller
 
   alias Allbeerme.Beer
+  alias Allbeerme.Image
 
   plug :authorize_user
 
@@ -13,11 +14,13 @@ defmodule Allbeerme.Admin.BeerController do
 
   def new(conn, _params) do
     changeset = Beer.changeset(%Beer{})
-    render(conn, "new.html", changeset: changeset)
+    logos = Repo.all(Image)
+    render(conn, "new.html", changeset: changeset, logos: logos)
   end
 
   def create(conn, %{"beer" => beer_params}) do
     changeset = Beer.changeset(%Beer{}, beer_params)
+    logos = Repo.all(Image)
 
     case Repo.insert(changeset) do
       {:ok, _beer} ->
@@ -25,7 +28,7 @@ defmodule Allbeerme.Admin.BeerController do
         |> put_flash(:info, "Beer created successfully.")
         |> redirect(to: admin_beer_path(conn, :index))
       {:error, changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        render(conn, "new.html", changeset: changeset, logos: logos)
     end
   end
 
@@ -36,14 +39,15 @@ defmodule Allbeerme.Admin.BeerController do
 
   def edit(conn, %{"id" => id}) do
     beer = Repo.get!(Beer, id)
-    beer = Repo.preload(beer, :logo)
+    logos = Repo.all(Image)
     changeset = Beer.changeset(beer)
-    render(conn, "edit.html", beer: beer, changeset: changeset)
+    render(conn, "edit.html", beer: beer, changeset: changeset, logos: logos)
   end
 
   def update(conn, %{"id" => id, "beer" => beer_params}) do
     beer = Repo.get!(Beer, id)
     changeset = Beer.changeset(beer, beer_params)
+    logos = Repo.all(Image)
 
     case Repo.update(changeset) do
       {:ok, beer} ->
@@ -51,7 +55,7 @@ defmodule Allbeerme.Admin.BeerController do
         |> put_flash(:info, "Beer updated successfully.")
         |> redirect(to: admin_beer_path(conn, :edit, beer))
       {:error, changeset} ->
-        render(conn, "edit.html", beer: beer, changeset: changeset)
+        render(conn, "edit.html", beer: beer, changeset: changeset, logos: logos)
     end
   end
 

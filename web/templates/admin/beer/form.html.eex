@@ -46,14 +46,10 @@
   </div>
 
   <div class="form-group row">
-    <label class="col-md-2 col-form-label">Logo</label>
+    <label class = "col-md-2 col-form-label">Сорт Пива</label>
     <div class="col-md-10">
-      <%= inputs_for f, :logo, fn i -> %>
-        <%= text_input i, :name %>
-        <%= error_tag i, :name %>
-        <%= file_input i, :image %>
-        <%= error_tag i, :image %>
-      <% end %>
+      <%= select(f, :logo_id, Enum.map(@logos, &{&1.name, &1.id}), prompt: "-- Марка пива --") %>
+      <%= error_tag f, :logo_id %>
     </div>
   </div>
 
