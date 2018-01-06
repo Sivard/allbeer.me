@@ -15,10 +15,10 @@ defmodule Allbeerme.Image do
   @doc """
   Builds a changeset based on the `struct` and `params`.
   """
-  def changeset(struct, params \\ %{}) do
+  def changeset(struct, params \\ :invalid) do
     struct
-    |> cast(params, [:image, :name, :beer_id])
+    |> cast(params, [:name, :beer_id])
     |> cast_attachments(params, [:image])
-    |> validate_required([:name])
+    |> validate_required([:name, :image])
   end
 end

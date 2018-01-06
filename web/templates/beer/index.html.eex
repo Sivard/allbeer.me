@@ -1,12 +1,13 @@
 <h2 class="text-center">Марки пива</h2>
-
-<%= for beer <- @beers do %>
-  <div class="card" style="width: 18rem;">
-    <%= beer.logo && card_link(beer.logo) %>
-    <div class="card-body">
-      <h5 class="card-title"><%= beer.name %></h5>
-      <p class="card-text"><%= raw beer.body %></p>
-      <%= link "Подробнее...", to: beer_path(@conn, :show, beer.slug), class: "btn btn-primary" %>
+<div class="card-columns">
+  <%= for beer <- @beers do %>
+    <div class="card">
+      <%= beer.logo && card_link(beer.logo) %>
+      <div class="card-body">
+        <h5 class="card-title"><%= beer.name %></h5>
+        <p class="card-text"><%= raw beer.body %></p>
+        <%= link "Подробнее...", to: beer_path(@conn, :show, beer.slug), class: "btn btn-primary" %>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

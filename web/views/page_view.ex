@@ -8,6 +8,6 @@ defmodule Allbeerme.PageView do
   end
 
   def image_link(logo) do
-    Allbeerme.ImageUploader.url({logo.image, logo})
+    Allbeerme.ImageUploader.url({logo.image, logo}, :thumb)
   end
 end

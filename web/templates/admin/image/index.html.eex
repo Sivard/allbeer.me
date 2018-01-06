@@ -22,7 +22,7 @@
         <%= image.name %>
       </td>
       <td>
-        <img src="<%= Allbeerme.ImageUploader.url({image.image, image})%>"><br>
+        <img src="<%= Allbeerme.ImageUploader.url({image.image, image}, :thumb)%>"><br>
       </td>
       <td>
         <%= image.beer && image.beer.name %>

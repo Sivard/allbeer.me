@@ -54,7 +54,15 @@
       </main>
 
       <footer class='fixed-bottom'>
-        <div class='container'>Copyright © <%= Date.utc_today.year %> Sivard</div>
+        <div class='container'>
+          <div class='row'>
+            <div class='col-12'>
+              <div class='bg-dark text-white navbar'>
+                Copyright © <%= Date.utc_today.year %> Sivard
+              </div>
+            </div>
+          </div>
+        </div>
       </footer>
     </div> <!-- /container -->
     <script src="<%= static_path(@conn, "/dist/app.js") %>"></script>
