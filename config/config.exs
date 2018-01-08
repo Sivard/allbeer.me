@@ -14,7 +14,6 @@ config :allbeerme, Allbeerme.Repo,
   password: "1",
   hostname: "localhost"
 
-
 # Configures the endpoint
 config :allbeerme, Allbeerme.Endpoint,
   url: [host: "localhost"],
@@ -50,3 +49,7 @@ config :ex_aws,
  host: "s3.eu-central-1.amazonaws.com",
  region: "eu-central-1"
  ]
+
+config :rummage_ecto, Rummage.Ecto,
+  default_repo: Allbeerme.Repo,
+  default_per_page: 3

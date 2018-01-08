@@ -1,12 +1,10 @@
 <div class="row">
   <div class="col-12">
     <div class="jumbotron">
-      <h1 class="display-5">Добро пожаловать на сайт Allbeerme!</h1>
-      <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-      <hr class="my-4">
-      <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+      <h1>Добро пожаловать на сайт allbeer.me</h1>
       <p class="lead">
-        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        Что такое Allbeerme?<br>
+        Allbeerme - это сайт для пива, о пиве и про пиво. Здесь собраны известные марки и не очень, история создания и интересные факты.
       </p>
     </div>
     <h4 class='text-center'>Последние новости</h4>
@@ -20,7 +18,7 @@
             <%= link "Подробнее...", to: beer_path(@conn, :show, beer.slug), class: "btn btn-primary" %>
           </div>
           <div class="card-footer">
-            <small class="text-muted">Обновлено <%= time_ago(beer.inserted_at) %></small>
+            <small class="text-muted">Добавлено <%= time_ago(beer.inserted_at) %></small>
           </div>
         </div>
       <% end %>

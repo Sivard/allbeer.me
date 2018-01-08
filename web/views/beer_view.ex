@@ -1,5 +1,6 @@
 defmodule Allbeerme.BeerView do
   use Allbeerme.Web, :view
+  use Rummage.Phoenix.View
   use Timex
 
   def card_link(logo, thumb \\ :thumb, class \\ "card-img-top") do

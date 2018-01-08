@@ -1,4 +1,7 @@
 <h2 class="text-center">Марки пива</h2>
+
+<%= pagination_link(@conn, @rummage) %>
+
 <div class="card-columns mb-5">
   <%= for beer <- @beers do %>
     <div class="card">
@@ -9,7 +12,7 @@
         <%= link "Подробнее...", to: beer_path(@conn, :show, beer.slug), class: "btn btn-primary" %>
       </div>
       <div class="card-footer">
-        <small class="text-muted">Обновлено <%= time_ago(beer.inserted_at) %></small>
+        <small class="text-muted">Добавлено <%= time_ago(beer.inserted_at) %></small>
       </div>
     </div>
   <% end %>

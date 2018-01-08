@@ -7,8 +7,10 @@ defmodule Allbeerme.Admin.ImageController do
   plug :authorize_user
 
   def index(conn, _) do
-    images = Repo.all(Image)
-    images = Repo.preload(images, :beer)
+    images = Image
+      |> Repo.all
+      |> Repo.preload(:beer)
+
     render(conn, "index.html", images: images)
   end
 

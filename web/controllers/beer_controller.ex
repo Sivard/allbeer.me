@@ -1,12 +1,20 @@
 defmodule Allbeerme.BeerController do
   use Allbeerme.Web, :controller
+  use Rummage.Phoenix.Controller
 
   alias Allbeerme.Beer
 
-  def index(conn, _params) do
-    beers = Repo.all(Beer)
-    beers = Repo.preload(beers, :logo)
-    render(conn, "index.html", beers: beers)
+  def index(conn, params) do
+    {query, rummage} = Beer
+      |> Beer.rummage(params["rummage"])
+
+    beers = query
+      |> Repo.all
+      |> Repo.preload(:logo)
+
+# localhost:400/products?rummage[sort][field]=name.asc&rummage[paginate][page]=2&rummage[paginate][per_page]=2
+
+    render(conn, "index.html", beers: beers, rummage: rummage)
   end
 
   def show(conn, %{"id" => id}) do

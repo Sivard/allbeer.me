@@ -4,8 +4,11 @@ defmodule Allbeerme.PageController do
   alias Allbeerme.Beer
 
   def index(conn, _params) do
-    beers = Repo.all(Beer)
-    beers = Repo.preload(beers, :logo)
+    beers = Repo.all(
+      from beer in Beer,
+      order_by: [desc: beer.inserted_at],
+      limit: 3)
+      |> Repo.preload(:logo)
     render(conn, "index.html", beers: beers)
   end
 

@@ -7,8 +7,10 @@ defmodule Allbeerme.Admin.BeerController do
   plug :authorize_user
 
   def index(conn, _params) do
-    beers = Repo.all(Beer)
-    beers = Repo.preload(beers, :logo)
+    beers = Beer
+      |> Repo.all
+      |> Repo.preload(:logo)
+
     render(conn, "index.html", beers: beers)
   end
 
