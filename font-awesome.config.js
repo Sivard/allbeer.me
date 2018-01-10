@@ -3,16 +3,16 @@ module.exports = {
   styleLoader: 'style-loader!css-loader!sass-loader',
 
   styles: {
-    mixins: true,
-    'bordered-pulled': true,
+    mixins: false,
+    'bordered-pulled': false,
     core: true,
-    'fixed-width': true,
+    'fixed-width': false,
     icons: true,
-    larger: true,
-    list: true,
-    path: true,
-    'rotated-flipped': true,
-    animated: true,
-    stacked: true
+    larger: false,
+    list: false,
+    path: false,
+    'rotated-flipped': false,
+    animated: false,
+    stacked: false
   }
 };

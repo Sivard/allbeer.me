@@ -23,7 +23,7 @@ styles:
 
   # Core CSS
   buttons: true
-  code: true
+  code: false
   images: true
   grid: true
   forms: true
@@ -39,7 +39,7 @@ styles:
   card: true
   close: true
   custom-forms: true
-  dropdown: true
+  dropdown: false
   functions: true
   input-group: true
   jumbotron: true
@@ -66,10 +66,10 @@ scripts:
   button: true
   carousel: false
   collapse: true
-  dropdown: true
+  dropdown: false
   modal: false
   popover: false
   scrollspy: false
-  tab: true
+  tab: false
   tooltip: false
   util: true
