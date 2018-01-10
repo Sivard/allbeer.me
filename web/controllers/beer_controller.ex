@@ -6,13 +6,13 @@ defmodule Allbeerme.BeerController do
 
   def index(conn, params) do
     {query, rummage} = Beer
-      |> Beer.rummage(params["rummage"])
+      |> Rummage.Ecto.rummage(params["rummage"])
 
     beers = query
       |> Repo.all
       |> Repo.preload(:logo)
 
-# localhost:400/products?rummage[sort][field]=name.asc&rummage[paginate][page]=2&rummage[paginate][per_page]=2
+# localhost:400/beers?rummage[sort][field]=name.asc&rummage[paginate][page]=2&rummage[paginate][per_page]=2
 
     render(conn, "index.html", beers: beers, rummage: rummage)
   end

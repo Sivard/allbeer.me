@@ -40,7 +40,7 @@ defmodule Allbeerme.Mixfile do
       {:ex_aws, "~> 1.1"},
       {:gettext, "~> 0.11"},
       {:hackney, "~> 1.6"},
-      {:rummage_phoenix, "~> 1.0.0"},
+      {:rummage_phoenix, "~> 1.2.0"},
       {:phoenix, "~> 1.3.0", override: true},
       {:phoenix_ecto, "~> 3.0"},
       {:phoenix_html, "~> 2.0"},

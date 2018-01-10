@@ -1,6 +1,5 @@
 defmodule Allbeerme.Beer do
   use Allbeerme.Web, :model
-  use Rummage.Ecto
 
   # @derive {Phoenix.Param, key: :slug}
 
