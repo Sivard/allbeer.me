@@ -18,6 +18,14 @@ config :allbeerme, Allbeerme.Endpoint,
   server: true,
   code_reloader: false
 
+
+config :allbeerme, Allbeerme.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  database: "allbeerme_repo",
+  username: "postgres",
+  # password: "1",
+  hostname: "localhost"
+
 # Do not print debug messages in production
 config :logger, level: :info
 

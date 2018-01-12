@@ -14,6 +14,14 @@ config :allbeerme, Allbeerme.Endpoint,
   watchers: [npm: ["run", "watch"]]
 
 
+config :allbeerme, Allbeerme.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  database: "allbeerme_repo",
+  username: "andrew",
+  password: "1",
+  hostname: "localhost"
+
+
 # Watch static and templates for browser reloading.
 config :allbeerme, Allbeerme.Endpoint,
   live_reload: [
