@@ -1,4 +1,4 @@
-APP="all_beer_me"
+APP="allbeerme"
 
 BUILD_HOST="allbeer.me"
 BUILD_USER="sivard"
