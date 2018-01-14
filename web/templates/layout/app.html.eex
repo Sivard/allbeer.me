@@ -8,6 +8,7 @@
         render(Allbeerme.LayoutView, "meta.html", assigns) %>
 
     <link rel="stylesheet" href="<%= static_path(@conn, "/dist/app.css") %>">
+    <meta name="yandex-verification" content="ba6813d6847eae2b" />
   </head>
 
   <body>
