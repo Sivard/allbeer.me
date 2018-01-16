@@ -93,5 +93,5 @@ module.exports.plugins.push(
       drop_console: true,
       unsafe: true
     }
-  }),
+  })
 );

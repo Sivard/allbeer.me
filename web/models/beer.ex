@@ -1,5 +1,6 @@
 defmodule Allbeerme.Beer do
   use Allbeerme.Web, :model
+  import Slug
 
   # @derive {Phoenix.Param, key: :slug}
 
