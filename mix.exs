@@ -3,7 +3,7 @@ defmodule Allbeerme.Mixfile do
 
   def project do
     [app: :allbeerme,
-     version: "0.0.39",
+     version: "0.0.41",
      elixir: "~> 1.2",
      elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix, :gettext] ++ Mix.compilers,
@@ -19,7 +19,8 @@ defmodule Allbeerme.Mixfile do
     [mod: {Allbeerme, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
                     :distillery, :edeliver, :postgrex, :phoenix_ecto,
-                    :ex_aws, :hackney, :poison, :arc_ecto, :comeonin, :timex]]
+                    :ex_aws, :hackney, :poison, :arc_ecto, :comeonin, :timex,
+                    :slugify, :rummage_phoenix, :sweet_xml]]
   end
 
   # Specifies which paths to compile per environment.

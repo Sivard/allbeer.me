@@ -48,7 +48,10 @@ end
 release :allbeerme do
   set version: current_version(:allbeerme)
   set applications: [
-    :runtime_tools
+    :runtime_tools,
+    :rummage_phoenix,
+    :sweet_xml,
+    :slugify
   ]
 end
 
