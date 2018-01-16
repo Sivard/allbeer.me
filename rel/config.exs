@@ -30,13 +30,13 @@ environment :dev do
   # dev mode.
   set dev_mode: true
   set include_erts: false
-  set cookie: :"9vvMptK^4}^fB[bb,S3T&q0g1JAgC}.j;x(0b>e!=r82EUq_.U~NR>ib^6E3w>*("
+  set cookie: :"]tKj1uisZiH[vcT/Z,mX9x(~d}VQ1xz~t?8.Pxg5`U7Q./MD=7MFgGl))]l5nrC7"
 end
 
 environment :prod do
   set include_erts: true
   set include_src: false
-  set cookie: :"~9K3}D3gn${n;(5OaPe,b8uXq[bIOL.=ADCQ?&UNxi<1B^z]RJangJE)V93RG9wj"
+  set cookie: :"lgVp;4?i8gn6ewwWZd1voJt31EafL{3jiTWW9<`ZA}73W^d<>wBOe^*=Rm$%Gh2~"
   set output_dir: "rel/allbeerme"
 end
 
