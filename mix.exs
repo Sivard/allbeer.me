@@ -50,7 +50,7 @@ defmodule Allbeerme.Mixfile do
       {:poison, "~> 3.1"},
       {:postgrex, "~> 0.13.0"},
       {:slugify, "~> 1.1"},
-      {:sweet_xml, "~> 0.6"},
+      {:sweet_xml, "~> 0.6.5"},
       {:timex, "~> 3.1"},
     ]
   end
