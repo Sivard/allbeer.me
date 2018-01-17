@@ -6,7 +6,7 @@
   <% end %>
 </p>
 
-<table class="table">
+<table class="table mb-5">
   <thead class="thead-light">
     <tr>
       <th>Название</th>
@@ -21,28 +21,28 @@
     </tr>
   </thead>
   <tbody>
-<%= for beer <- @beers do %>
-    <tr>
-      <td><%= beer.name %></td>
-      <td><%= beer.body %></td>
-      <td><%= beer.title %></td>
-      <td><%= beer.keywords %></td>
-      <td><%= beer.description %></td>
-      <td><%= beer.slug %></td>
-      <td><%= beer.logo.name %></td>
+    <%= for beer <- @beers do %>
+      <tr>
+        <td><%= beer.name %></td>
+        <td><%= beer.body %></td>
+        <td><%= beer.title %></td>
+        <td><%= beer.keywords %></td>
+        <td><%= beer.description %></td>
+        <td><%= beer.slug %></td>
+        <td><%= beer.logo.name %></td>
 
-      <td class="text-right text-nowrap">
-        <%= link to: admin_beer_path(@conn, :show, beer), title: "Показать", class: "text-muted" do %>
-          <i class="fa fa-eye" aria-hidden="true"></i>
-        <% end %>
-        <%= link to: admin_beer_path(@conn, :edit, beer), title: "Редактировать", class: "text-muted" do %>
-          <i class="fa fa-edit" aria-hidden="true"></i>
-        <% end %>
-        <%= link to: admin_beer_path(@conn, :delete, beer), method: :delete, title: "Удалить", data: [confirm: "Вы уверенны?"], class: "text-danger" do %>
-          <i class="fa fa-remove" aria-hidden="true"></i>
-        <% end %>
-      </td>
-    </tr>
-<% end %>
+        <td class="text-right text-nowrap">
+          <%= link to: admin_beer_path(@conn, :show, beer), title: "Показать", class: "text-muted" do %>
+            <i class="fa fa-eye" aria-hidden="true"></i>
+          <% end %>
+          <%= link to: admin_beer_path(@conn, :edit, beer), title: "Редактировать", class: "text-muted" do %>
+            <i class="fa fa-edit" aria-hidden="true"></i>
+          <% end %>
+          <%= link to: admin_beer_path(@conn, :delete, beer), method: :delete, title: "Удалить", data: [confirm: "Вы уверенны?"], class: "text-danger" do %>
+            <i class="fa fa-remove" aria-hidden="true"></i>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
   </tbody>
 </table>

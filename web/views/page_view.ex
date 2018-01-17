@@ -8,6 +8,10 @@ defmodule Allbeerme.PageView do
     """
   end
 
+  def preview(text) do
+    text |> Floki.find("p.preview") |> Floki.raw_html
+  end
+
   def image_link(logo) do
     Allbeerme.ImageUploader.url({logo.image, logo}, :thumb)
   end

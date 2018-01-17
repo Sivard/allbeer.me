@@ -6,7 +6,7 @@
   <% end %>
 </p>
 
-<table class="table">
+<table class="table mb-5">
   <thead class="thead-light">
     <tr>
       <th>Логин</th>
@@ -17,24 +17,24 @@
     </tr>
   </thead>
   <tbody>
-<%= for user <- @users do %>
-    <tr>
-      <td><%= user.username %></td>
-      <td><%= user.email %></td>
-      <td><%= user.password_digest %></td>
+    <%= for user <- @users do %>
+      <tr>
+        <td><%= user.username %></td>
+        <td><%= user.email %></td>
+        <td><%= user.password_digest %></td>
 
-      <td class="text-right">
-        <%= link to: admin_user_path(@conn, :show, user), title: "Показать", class: "text-muted" do %>
-          <i class="fa fa-eye" aria-hidden="true"></i>
-        <% end %>
-        <%= link to: admin_user_path(@conn, :edit, user), title: "Редактировать", class: "text-muted" do %>
-          <i class="fa fa-edit" aria-hidden="true"></i>
-        <% end %>
-        <%= link to: admin_user_path(@conn, :delete, user), method: :delete, title: "Удалить", data: [confirm: "Вы уверенны?"], class: "text-danger" do %>
-          <i class="fa fa-remove" aria-hidden="true"></i>
-        <% end %>
-      </td>
-    </tr>
-<% end %>
+        <td class="text-right">
+          <%= link to: admin_user_path(@conn, :show, user), title: "Показать", class: "text-muted" do %>
+            <i class="fa fa-eye" aria-hidden="true"></i>
+          <% end %>
+          <%= link to: admin_user_path(@conn, :edit, user), title: "Редактировать", class: "text-muted" do %>
+            <i class="fa fa-edit" aria-hidden="true"></i>
+          <% end %>
+          <%= link to: admin_user_path(@conn, :delete, user), method: :delete, title: "Удалить", data: [confirm: "Вы уверенны?"], class: "text-danger" do %>
+            <i class="fa fa-remove" aria-hidden="true"></i>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
