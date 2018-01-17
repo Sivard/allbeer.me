@@ -1,6 +1,6 @@
 <h2 class="text-center"><%= @beer.name %></h2>
 
 <div class="mb-5">
-  <%= @beer.logo && card_link(@beer.logo, nil, "rounded float-left") %>
+  <%= @beer.logo && card_link(@beer.logo, nil, "rounded float-left ml-1 mb-1") %>
   <%= raw @beer.body %>
 </div>

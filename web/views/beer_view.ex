@@ -9,6 +9,10 @@ defmodule Allbeerme.BeerView do
     """
   end
 
+  def preview(text) do
+    text |> Floki.find("p.preview") |> Floki.raw_html
+  end
+
   def image_link(logo, thumb) do
     Allbeerme.ImageUploader.url({logo.image, logo}, thumb)
   end

@@ -8,7 +8,7 @@
       <%= beer.logo && card_link(beer.logo) %>
       <div class="card-body">
         <h5 class="card-title"><%= beer.name %></h5>
-        <p class="card-text"><%= raw beer.body %></p>
+        <p class="card-text"><%= raw preview(beer.body) %></p>
         <%= link "Подробнее...", to: beer_path(@conn, :show, beer.slug), class: "btn btn-primary" %>
       </div>
       <div class="card-footer">
