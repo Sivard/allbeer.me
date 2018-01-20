@@ -1,6 +1,6 @@
 <h2 class="text-center">Марки пива</h2>
 
-<%= pagination_link(@conn, @rummage) %>
+<%= pagination_link(@conn, @rummage, first_label: "<<", previous_label: "<", next_label: ">", last_label: ">>") %>
 
 <div class="card-columns mb-5">
   <%= for beer <- @beers do %>
